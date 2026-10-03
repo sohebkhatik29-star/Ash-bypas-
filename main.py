@@ -2843,11 +2843,13 @@ def run_flask_thread():
     logger.info(f"Flask HTTP server starting on port {PORT}...")
     app.run(host="0.0.0.0", port=PORT, debug=False, use_reloader=False, threaded=True)
 
-if __name__ == "__main__":
+def run_app():
     flask_thread = threading.Thread(target=run_flask_thread, daemon=True, name="FlaskThread")
     flask_thread.start()
-
     try:
         asyncio.run(main_async())
     except (KeyboardInterrupt, SystemExit):
-        logger.info("🛑 ProviderBotz stopped.")
+        logger.info("🛑 Bot stopped.")
+
+if __name__ == "__main__":
+    run_app()
