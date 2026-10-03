@@ -975,8 +975,15 @@ async def safe_telethon_send(
     4. Anti-Flood Human Pacing (minimum 2.5s delay between sends) with asyncio lock.
     Returns: (sent_message_object, error_description)
     """
-    if not engine.userbot or not engine.userbot_connected:
-        return None, "Telethon Userbot is not connected."
+    if not engine.userbot:
+        return None, "Telethon Userbot is not initialized."
+    if not engine.userbot.is_connected():
+        try:
+            await engine.userbot.connect()
+            if await engine.userbot.is_user_authorized():
+                engine.userbot_connected = True
+        except Exception as e:
+            return None, f"Telethon Userbot auto-reconnect failed: {e}"
 
     # 1. Link-Safety Check if target is Alex Bot or external bypasser
     if enforce_link_safety:
@@ -2769,10 +2776,9 @@ async def main_async():
                 StringSession(TELEGRAM_SESSION),
                 TELEGRAM_API_ID,
                 TELEGRAM_API_HASH,
-                connection=ConnectionTcpAbridged,
                 auto_reconnect=True
             )
-            await userbot.start()
+            await userbot.connect()
             if await userbot.is_user_authorized():
                 engine.userbot = userbot
                 engine.userbot_connected = True
