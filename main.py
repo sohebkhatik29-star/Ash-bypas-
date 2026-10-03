@@ -106,23 +106,23 @@ MANUAL_DZHQ_GROUP: Union[int, str, None] = None  # 👈 PASTE DZHQ GROUP ID (-10
 MANUAL_START_IMAGE_URL: str = "https://api.aniwallpaper.workers.dev/random?type=girl"  # 👈 PASTE START IMAGE / BANNER URL HERE!
 
 # 👑 4. OWNER ID (বট ওনার আইডি):
-MANUAL_OWNER_ID: Union[int, str, None] = 7931847651  # 👈 YOUR TELEGRAM ID HERE (e.g. 7931847651)
+MANUAL_OWNER_ID: Union[int, str, None] = 5566977478  # 👈 YOUR TELEGRAM ID HERE (e.g. 5566977478)
 
 # ══════════════════════════════════════════════════════════════
 #  SYSTEM CONFIGURATION & CREDENTIALS
 # ══════════════════════════════════════════════════════════════
-DEVELOPER = "@LazyProvider"
-BRAND_NAME = "ProviderBotz"
-OFFICIAL_CHANNEL = "https://t.me/ProviderBotz"
-FSUB_CHANNEL = os.environ.get("FSUB_CHANNEL", "@ProviderBotz").strip()
+DEVELOPER = "@movies_1780"
+BRAND_NAME = "MoviesGroup"
+OFFICIAL_CHANNEL = "https://t.me/MoviesGroupG3"
+FSUB_CHANNEL = os.environ.get("FSUB_CHANNEL", "@MoviesGroupG3").strip()
 
 # Public Bot Credentials
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "8678804822:AAHgbpb6q40Yvjw-SeZVyZicW2BXk-1kS0E").strip()
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8580125701:AAHDzKMT-h2HOQCgJoeSTmk4636hQlGnZ4g").strip()
 BOT_USERNAME = os.environ.get("BOT_USERNAME", "TheLinkzoBot").strip().lstrip("@")
 
 # Owner ID Priority: MANUAL_OWNER_ID (in code) -> OWNER_ID (env var)
-_raw_owner = MANUAL_OWNER_ID if MANUAL_OWNER_ID is not None and str(MANUAL_OWNER_ID).strip() else os.environ.get("OWNER_ID", "7931847651").strip()
-OWNER_ID = int(_raw_owner) if str(_raw_owner).isdigit() else 7931847651
+_raw_owner = MANUAL_OWNER_ID if MANUAL_OWNER_ID is not None and str(MANUAL_OWNER_ID).strip() else os.environ.get("OWNER_ID", "5566977478").strip()
+OWNER_ID = int(_raw_owner) if str(_raw_owner).isdigit() else 5566977478
 
 # Start Message Image Priority: MANUAL_START_IMAGE_URL (in code) -> START_IMAGE_URL (env var)
 START_IMAGE_URL: str = (MANUAL_START_IMAGE_URL or os.environ.get("START_IMAGE_URL", "")).strip()
@@ -130,10 +130,10 @@ START_IMAGE_URL: str = (MANUAL_START_IMAGE_URL or os.environ.get("START_IMAGE_UR
 bot_api: Optional[Any] = None
 
 # Telethon Userbot Credentials
-TELEGRAM_API_ID_RAW = os.environ.get("TELEGRAM_API_ID", "36805393").strip()
-TELEGRAM_API_ID = int(TELEGRAM_API_ID_RAW) if TELEGRAM_API_ID_RAW.isdigit() else 36805393
-TELEGRAM_API_HASH = os.environ.get("TELEGRAM_API_HASH", "cfd5ff24d915c1691d88b0f3b51b96f5").strip()
-TELEGRAM_SESSION = os.environ.get("TELEGRAM_SESSION", "1BVtsOIEBu4aGtZ5tO0oVs4oK6qbC997f6X0rLwOP1JQd9jeVtdq-xI49Rpr95rE5b0Wrg0ues8_NaiCZJe-ZJ-tCcYdBmImREowuBCsDjq1zNRbeOIEL0Z0L6-nBdYkoDPsXuuqLv4t27daPhbvwzm8RusQKcjMj5S8p7kuG4J7KzKAaRZiT1uwGA6-3nUP6XU24ZxB_7BsBXkUqJJVYi29CxHdt6_Xo2_UVpXA1amPO3ifuy9MbfC0ikLRfF-KxlXtStgIBSZqHrE1yxLe8BxHN2XAM0EitlNhD_lPPBV7znBNFKHBZjZTl4Ey40lR6-qx0ipRlwYT7LZn6oCxKy0secDH1McM=").strip()
+TELEGRAM_API_ID_RAW = os.environ.get("TELEGRAM_API_ID", "30720676").strip()
+TELEGRAM_API_ID = int(TELEGRAM_API_ID_RAW) if TELEGRAM_API_ID_RAW.isdigit() else 30720676
+TELEGRAM_API_HASH = os.environ.get("TELEGRAM_API_HASH", "a078e3476750afbd6db7d6c5e5e658d9").strip()
+TELEGRAM_SESSION = os.environ.get("TELEGRAM_SESSION", "1BVtsOIEBu1UvCOhpo6rnHKsNNLwBg1--ulXhd9yj3UG9wJqFyjS0KoHcM19XfK9w34OKExex6YwVj-xRTL84enj0jtsxkSTjWKPcSIhwr0b9Wngi_KN-kUUWWxb_hVWtxQA0qLKoRJGH-tUZa6DEwO2UDJRMMsG_CQSvvVSjdEa1reveCfnbqc1JzunVnd0QWToHVN6ucQ_PO0Q2lJI5kJA019Br_rnZ8F15To05iS44fLl2Py9dSMsYdMLC19pB4qECemg3tu8YEmSV56djxpgi_NznTdyVFXKlPrLe3FUYC_k-PchQ7iNjhNf-uShH19KsZcqry69zVVAeOrNX0b7uGjOpAt8=").strip()
 
 # External Bypass Bots (Supports DZHQ Group & Alex DM)
 DZHQ_BOT = os.environ.get("DZHQ_BOT_USERNAME", "@DZHQ_BypassBot").strip()
