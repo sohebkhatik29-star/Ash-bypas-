@@ -106,6 +106,10 @@ MANUAL_START_IMAGE_URL: str = "https://api.aniwallpaper.workers.dev/random?type=
 # 👑 4. OWNER ID (বট ওনার আইডি):
 MANUAL_OWNER_ID: Union[int, str, None] = 5566977478  # 👈 YOUR TELEGRAM ID HERE (e.g. 5566977478)
 
+# 🔐 5. TELETHON STRING SESSION (টেলিথন স্ট্রিং সেশন):
+# Authorized StringSession for bypass userbot
+MANUAL_TELEGRAM_SESSION: str = "1BVtsOIEBu0sYkfqgAntqg8LDYAzMZcuaKkEaCbL-O9jDvTTzTv9_kT5mjFKj91dXsW8vaMD6EHMgvv7CXt2cKLwME9TaQpWQMRy_SHccqxMfBZguSIktfy3IER446PePd0QYV11q80qLeyAT0fC5UXrwgdS9hDFVs-H5JfwuvCc2FIMw3geUvQYRv3to25HayN53L05uucK3idezDg2873FTEFJWbrvW0O7kccLxEgx6e1jpFYwazfk6_l7rLqY0qwgX-idS7Up2aKEvjGK30kQ1iJ6Gu8o2HGgUhFsguRLBoIwnvOHHgwothUnHdAfI5clzWK6Phw2TEQr8LMUcaGldQ7mulpY="
+
 # ══════════════════════════════════════════════════════════════
 #  SYSTEM CONFIGURATION & CREDENTIALS
 # ══════════════════════════════════════════════════════════════
@@ -131,7 +135,8 @@ bot_api: Optional[Any] = None
 TELEGRAM_API_ID_RAW = os.environ.get("TELEGRAM_API_ID", "30720676").strip()
 TELEGRAM_API_ID = int(TELEGRAM_API_ID_RAW) if TELEGRAM_API_ID_RAW.isdigit() else 30720676
 TELEGRAM_API_HASH = os.environ.get("TELEGRAM_API_HASH", "a078e3476750afbd6db7d6c5e5e658d9").strip()
-TELEGRAM_SESSION = os.environ.get("TELEGRAM_SESSION", "1BVtsOIEBu0sYkfqgAntqg8LDYAzMZcuaKkEaCbL-O9jDvTTzTv9_kT5mjFKj91dXsW8vaMD6EHMgvv7CXt2cKLwME9TaQpWQMRy_SHccqxMfBZguSIktfy3IER446PePd0QYV11q80qLeyAT0fC5UXrwgdS9hDFVs-H5JfwuvCc2FIMw3geUvQYRv3to25HayN53L05uucK3idezDg2873FTEFJWbrvW0O7kccLxEgx6e1jpFYwazfk6_l7rLqY0qwgX-idS7Up2aKEvjGK30kQ1iJ6Gu8o2HGgUhFsguRLBoIwnvOHHgwothUnHdAfI5clzWK6Phw2TEQr8LMUcaGldQ7mulpY=").strip()
+_raw_session = MANUAL_TELEGRAM_SESSION if (MANUAL_TELEGRAM_SESSION and len(MANUAL_TELEGRAM_SESSION.strip()) > 20) else os.environ.get("TELEGRAM_SESSION", "")
+TELEGRAM_SESSION = str(_raw_session).strip()
 
 # External Bypass Bots (Supports DZHQ Group & Alex DM)
 DZHQ_BOT = os.environ.get("DZHQ_BOT_USERNAME", "@DZHQ_BypassBot").strip()
@@ -2770,7 +2775,7 @@ async def main_async():
 
     # 1. Start Telethon Userbot (Strictly handles DZHQ Group + Alex DM)
     if TELEGRAM_API_ID and TELEGRAM_API_HASH and TELEGRAM_SESSION:
-        logger.info("Connecting Telethon Userbot...")
+        logger.info(f"Connecting Telethon Userbot (session prefix: {TELEGRAM_SESSION[:15]}... len: {len(TELEGRAM_SESSION)})...")
         try:
             userbot = TelegramClient(
                 StringSession(TELEGRAM_SESSION),
