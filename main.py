@@ -131,7 +131,7 @@ bot_api: Optional[Any] = None
 TELEGRAM_API_ID_RAW = os.environ.get("TELEGRAM_API_ID", "30720676").strip()
 TELEGRAM_API_ID = int(TELEGRAM_API_ID_RAW) if TELEGRAM_API_ID_RAW.isdigit() else 30720676
 TELEGRAM_API_HASH = os.environ.get("TELEGRAM_API_HASH", "a078e3476750afbd6db7d6c5e5e658d9").strip()
-TELEGRAM_SESSION = os.environ.get("TELEGRAM_SESSION", "1BVtsOIEBu1UvCOhpo6rnHKsNNLwBg1--ulXhd9yj3UG9wJqFyjS0KoHcM19XfK9w34OKExex6YwVj-xRTL84enj0jtsxkSTjWKPcSIhwr0b9Wngi_KN-kUUWWxb_hVWtxQA0qLKoRJGH-tUZa6DEwO2UDJRMMsG_CQSvvVSjdEa1reveCfnbqc1JzunVnd0QWToHVN6ucQ_PO0Q2lJI5kJA019Br_rnZ8F15To05iS44fLl2Py9dSMsYdMLC19pB4qECemg3tu8YEmSV56djxpgi_NznTdyVFXKlPrLe3FUYC_k-PchQ7iNjhNf-uShH19KsZcqry69zVVAeOrNX0b7uGjOpAt8=").strip()
+TELEGRAM_SESSION = os.environ.get("TELEGRAM_SESSION", "1BVtsOIEBu0sYkfqgAntqg8LDYAzMZcuaKkEaCbL-O9jDvTTzTv9_kT5mjFKj91dXsW8vaMD6EHMgvv7CXt2cKLwME9TaQpWQMRy_SHccqxMfBZguSIktfy3IER446PePd0QYV11q80qLeyAT0fC5UXrwgdS9hDFVs-H5JfwuvCc2FIMw3geUvQYRv3to25HayN53L05uucK3idezDg2873FTEFJWbrvW0O7kccLxEgx6e1jpFYwazfk6_l7rLqY0qwgX-idS7Up2aKEvjGK30kQ1iJ6Gu8o2HGgUhFsguRLBoIwnvOHHgwothUnHdAfI5clzWK6Phw2TEQr8LMUcaGldQ7mulpY=").strip()
 
 # External Bypass Bots (Supports DZHQ Group & Alex DM)
 DZHQ_BOT = os.environ.get("DZHQ_BOT_USERNAME", "@DZHQ_BypassBot").strip()
